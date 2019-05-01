@@ -1,0 +1,33 @@
+image: microsoft/dotnet:2.2.100-sdk
+
+stages:
+  - Build
+  - Test
+  - Release
+
+build:
+  stage: Build
+  script:
+    - dotnet build
+  only:
+    - branches
+    - merge_requests
+
+test:
+  stage: Test
+  script:
+    - dotnet test
+  only:
+    - branches
+    - merge_requests
+
+release:
+  stage: Release
+  script:
+    - dotnet publish -c Release -r linux-x64 --self-contained true src/GitLabCli.Console/GitLabCli.Console.csproj
+  environment:
+    name: production
+    url: https://qode.io/gl-cli
+  when: manual
+  only:
+    - master
