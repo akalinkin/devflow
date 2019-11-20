@@ -1,22 +1,36 @@
-# Dotnet GitLab CLI
+# DevFlow CLI
 
-CLI interface to interact with GitLab API from console, and have some usefull features without using browser
+CLI interface to manage your development flow in console
 
-# Build
-
-```
-dotnet build
-```
-
-# Test 
+## Installation
 
 ```
-dotnet test
+git clone ..
 ```
 
-# Publish
+## Using
 
-linux-x64
+### devflow
+
+Main entry point is `devflow` command. Must be used to access all
+tool commands.
+
+Using:
+
 ```
-dotnet publish -c Release -r linux-x64 --self-contained true src/GitLabCli.Console/GitLabCli.Console.csproj
+$ devflow COMMAND ARGS
 ```
+
+#### context
+
+Manage **context**. Context concept represents workspace and settings
+you are using when work with **devflow**. 
+
+For example, you can use **work** context to manage tasks when do smth
+relevant with your main job and **freelance** context to manage task
+outside of work scedule.
+
+- **i[nfo]** [default] print current context information
+- **l[ist]** prints list of available contexts
+- **a[dd]** creates and setup new context
+- **c[hange]** changes specified context
