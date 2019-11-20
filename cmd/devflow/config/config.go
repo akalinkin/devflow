@@ -1,6 +1,9 @@
-package main
+package config
 
 import "github.com/ilyakaznacheev/cleanenv"
+
+// AppName used to output in help output
+const AppName = "devflow"
 
 // Config - struct used to be filled by values from .env File or
 // 	        environment variables
